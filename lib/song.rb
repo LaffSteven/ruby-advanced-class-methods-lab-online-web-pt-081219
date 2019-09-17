@@ -40,21 +40,7 @@ class Song
   
   def self.find_or_create_by_name(target_song)
   
-    if Song.find_by_name(target_song) != nil
-      target_song
-    else
-      create_by_name(target_song)
-    end
-  
-    #song_exists = self.all.detect {|x| x.name == target_song}
-    #if song_exists == nil
-    #  song = self.new 
-    #  song.name = target_song
-    #  song.save 
-    #  song
-    #else
-    #  song_exists
-    #end
+    self.find_by_name(target_song) || self.create_by_name(target_song)
     
   end 
 
